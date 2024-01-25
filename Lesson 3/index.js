@@ -1,3 +1,29 @@
+//Homework | Lesson 3 | Fingers task
+
+let finger = prompt('Enter finger number');
+switch (finger) {
+    case '1':
+        alert('Thumb');
+        break;
+    case '2':
+        alert('Index');
+        break;
+    case '3':
+        alert('Middle');
+        break;
+    case '4':
+        alert('Ring');
+        break;
+    case '5':
+        alert('Little');
+        break;
+    default:
+        alert('Wrong number');
+        break;
+}
+
+//Ну і якщо таска з фруктами досі актуальна, то вона тут :)
+
 const applePrice = 10;
 const orangePrice = 12;
 const kiwiPrice = 15;
