@@ -20,6 +20,8 @@ arr.filter((item) => {
 
 console.log(newArr2)
 
+// And using forEach method
+
 arr.forEach((item) => {
     if (item) {
         newArr3.push(item)
