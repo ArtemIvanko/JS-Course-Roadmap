@@ -16,7 +16,19 @@ const getCityInfo = (city) => {
     const cityObj = {};
 
     city.map((item) => {
-        cityObj[item] = item;
+        if (city.indexOf(item) === 0) {
+            cityObj.name = item;
+        } else if (city.indexOf(item) === 1) {
+            cityObj.area = item;
+        } else if (city.indexOf(item) === 2) {
+            cityObj.population = item;
+        } else if (city.indexOf(item) === 3) {
+            cityObj.mainStreet = item;
+        } else if (city.indexOf(item) === 4) {
+            cityObj.mayorName = item;
+        } else {
+            return 'No city info';
+        }
     })
 
     return cityObj;
