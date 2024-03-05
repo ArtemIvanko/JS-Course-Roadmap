@@ -1,4 +1,8 @@
 const palindrome = (str) => {
+    if (!str) {
+        return "Set a string as a parameter";
+    }
+
     const reversed = str.split('').reverse().join('');
 
     return str === reversed;
