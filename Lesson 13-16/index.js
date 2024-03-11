@@ -6,10 +6,10 @@ const mapArrList = (maxValue) => {
         return alert("The number of points should be between 0 and 10")
     }
 
-    const pointValue = prompt("Enter a point") || "Empty Point";
-
     for (let i = 0; i < maxValue; i++) {
-        arr.push(pointValue)
+        const pointValue = prompt("Enter a point") || "Empty Point";
+
+        arr.push(pointValue);
     }
 }
 
