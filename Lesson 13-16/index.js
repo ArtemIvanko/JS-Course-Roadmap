@@ -1,19 +1,10 @@
 const arr = [];
-const maxArrLength = +prompt("Enter the number of points");
 
-const mapArrList = (maxValue) => {
-    if (maxValue > 10 || maxValue <= 0) {
-        return alert("The number of points should be between 1 and 10")
-    }
-
-    for (let i = 0; i < maxValue; i++) {
-        const pointValue = prompt("Enter a point") || "Empty Point";
-
-        arr.push(pointValue);
-    }
+while (true) {
+    const pointValue = prompt('Enter a point (or click "Cancel" to finish):');
+    if (pointValue === null) break;
+    arr.push(pointValue);
 }
-
-mapArrList(maxArrLength);
 
 const createList = (arr) => {
     const list = document.createElement("ul");
@@ -23,7 +14,7 @@ const createList = (arr) => {
         const listItem = document.createElement("li");
         listItem.textContent = item;
         list.appendChild(listItem);
-    })
-}
+    });
+};
 
 createList(arr);
