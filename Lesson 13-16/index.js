@@ -1,14 +1,13 @@
 const arr = [];
 
-while (true) {
-    const pointValue = prompt('Enter a point (or click "Cancel" to finish):');
-    if (pointValue === null) break;
-    arr.push(pointValue);
-}
+const addButton = document.createElement("button");
+addButton.textContent = "Add point";
+document.body.appendChild(addButton);
 
-const createList = (arr) => {
-    const list = document.createElement("ul");
-    document.body.appendChild(list);
+const createPoint = (arr, list) => {
+    while (list.firstChild) {
+        list.removeChild(list.firstChild);
+    }
 
     arr.forEach((item) => {
         const listItem = document.createElement("li");
@@ -17,4 +16,22 @@ const createList = (arr) => {
     });
 };
 
-createList(arr);
+const createList = (arr) => {
+    let list = document.querySelector("ul");
+
+    if (!list) {
+        list = document.createElement("ul");
+        document.body.appendChild(list);
+    }
+
+    createPoint(arr, list);
+};
+
+addButton.addEventListener("click", () => {
+    const pointValue = prompt('Enter a point:');
+
+    if (pointValue === null) return;
+
+    arr.push(pointValue);
+    createList(arr);
+});
