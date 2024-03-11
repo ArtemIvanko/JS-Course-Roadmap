@@ -3,7 +3,7 @@ const maxArrLength = +prompt("Enter the number of points");
 
 const mapArrList = (maxValue) => {
     if (maxValue > 10 || maxValue <= 0) {
-        return alert("The number of points should be between 0 and 10")
+        return alert("The number of points should be between 1 and 10")
     }
 
     for (let i = 0; i < maxValue; i++) {
