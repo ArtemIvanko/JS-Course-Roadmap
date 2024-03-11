@@ -5,13 +5,22 @@ addButton.textContent = "Add point";
 document.body.appendChild(addButton);
 
 const createPoint = (arr, list) => {
-    while (list.firstChild) {
-        list.removeChild(list.firstChild);
-    }
+    list.innerHTML = "";
 
     arr.forEach((item) => {
         const listItem = document.createElement("li");
-        listItem.textContent = item;
+        const removeButton = document.createElement("button");
+
+        removeButton.textContent = "Remove";
+
+        listItem.textContent = item + " ";
+        listItem.appendChild(removeButton);
+
+        removeButton.addEventListener("click", () => {
+            arr.splice(arr.indexOf(item), 1);
+            createList(arr);
+        });
+
         list.appendChild(listItem);
     });
 };
