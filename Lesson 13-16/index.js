@@ -1,46 +1,44 @@
 const arr = [];
 
+while (true) {
+    const pointValue = prompt('Enter a point (or click "Cancel" to finish):');
+    if (pointValue === null) break;
+    arr.push(pointValue);
+}
+
 const addButton = document.createElement("button");
 addButton.textContent = "Add point";
 document.body.appendChild(addButton);
 
-const createPoint = (arr, list) => {
-    list.innerHTML = "";
+const createPoint = (item, list) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = item + " ";
+    list.appendChild(listItem);
 
-    arr.forEach((item) => {
-        const listItem = document.createElement("li");
-        const removeButton = document.createElement("button");
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    listItem.appendChild(removeButton);
 
-        removeButton.textContent = "Remove";
-
-        listItem.textContent = item + " ";
-        listItem.appendChild(removeButton);
-
-        removeButton.addEventListener("click", () => {
-            arr.splice(arr.indexOf(item), 1);
-            createList(arr);
-        });
-
-        list.appendChild(listItem);
+    removeButton.addEventListener("click", () => {
+        arr.splice(arr.indexOf(item), 1);
+        list.removeChild(listItem);
     });
 };
 
 const createList = (arr) => {
-    let list = document.querySelector("ul");
-
-    if (!list) {
-        list = document.createElement("ul");
-        document.body.appendChild(list);
-    }
-
-    createPoint(arr, list);
+    const list = document.createElement("ul");
+    document.body.appendChild(list);
+    arr.forEach((item) => {
+        createPoint(item, list);
+    });
 };
 
 addButton.addEventListener("click", () => {
     const pointValue = prompt('Enter a point:');
-
-    if (pointValue === null) return;
-
-    arr.push(pointValue);
-    createList(arr);
+    if (pointValue !== null) {
+        arr.push(pointValue);
+        createPoint(pointValue, document.querySelector("ul"));
+    }
 });
+
+createList(arr);
