@@ -50,4 +50,11 @@ customButton("Add point", document.body, () => {
     }
 });
 
+customButton("Clear", document.body, () => {
+    localStorage.clear();
+    arr.length = 0;
+    document.querySelector("ul").remove();
+    createList(arr);
+});
+
 createList(arr);
