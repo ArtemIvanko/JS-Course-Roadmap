@@ -24,7 +24,7 @@ const getPoint = () => {
 getPoint();
 
 //TODO: rename "customButton"
-const customButton = (name, parent, callback) => {
+const createButton = (name, parent, callback) => {
     const button = document.createElement("button");
     button.textContent = name;
     parent.appendChild(button);
@@ -38,7 +38,7 @@ const createPoint = (item, list) => {
     listItem.textContent = item + " ";
     list.prepend(listItem);
 
-    customButton("Remove", listItem, () => {
+    createButton("Remove", listItem, () => {
         arr.splice(arr.indexOf(item), 1);
         list.removeChild(listItem);
     });
@@ -54,7 +54,7 @@ const createList = (arr) => {
     });
 };
 
-customButton("Add point", document.body, () => {
+createButton("Add point", document.body, () => {
     const pointValue = prompt('Enter a point:');
     if (pointValue !== null) {
         arr.push(pointValue);
@@ -62,7 +62,7 @@ customButton("Add point", document.body, () => {
     }
 });
 
-customButton("Clear", document.body, () => {
+createButton("Clear", document.body, () => {
     localStorage.clear();
     arr.length = 0;
     document.querySelector("ul").remove();
