@@ -9,22 +9,20 @@ const getPoint = () => {
 };
 
 getPoint();
-}
 
-const addButton = document.createElement("button");
-addButton.textContent = "Add point";
-document.body.appendChild(addButton);
+const customButton = (name, parent, callback) => {
+    const button = document.createElement("button");
+    button.textContent = name;
+    parent.appendChild(button);
+    button.addEventListener("click", callback);
+}
 
 const createPoint = (item, list) => {
     const listItem = document.createElement("li");
     listItem.textContent = item + " ";
     list.appendChild(listItem);
 
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    listItem.appendChild(removeButton);
-
-    removeButton.addEventListener("click", () => {
+    customButton("Remove", listItem, () => {
         arr.splice(arr.indexOf(item), 1);
         list.removeChild(listItem);
     });
@@ -38,7 +36,7 @@ const createList = (arr) => {
     });
 };
 
-addButton.addEventListener("click", () => {
+customButton("Add point", document.body, () => {
     const pointValue = prompt('Enter a point:');
     if (pointValue !== null) {
         arr.push(pointValue);
