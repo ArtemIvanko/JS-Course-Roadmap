@@ -5,9 +5,10 @@ const setDataStorage = () => {
 }
 
 const getDataStorage = (arr) => {
-    const getDataStorage = JSON.parse(localStorage.getItem("points"));
-    if (getDataStorage !== null) {
-        getDataStorage.forEach((item) => {
+    const getDataItem = JSON.parse(localStorage.getItem("points"));
+
+    if (getDataItem !== null) {
+        getDataItem.forEach((item) => {
             arr.push(item);
         });
     }
