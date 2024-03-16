@@ -36,7 +36,7 @@ const createPoint = (item, list) => {
 
     const listItem = document.createElement("li");
     listItem.textContent = item + " ";
-    list.appendChild(listItem);
+    list.prepend(listItem);
 
     customButton("Remove", listItem, () => {
         arr.splice(arr.indexOf(item), 1);
