@@ -1,9 +1,14 @@
 const arr = [];
 
-while (true) {
-    const pointValue = prompt('Enter a point (or click "Cancel" to finish):');
-    if (pointValue === null) break;
-    arr.push(pointValue);
+const getPoint = () => {
+    while (true) {
+        const pointValue = prompt('Enter a point (or click "Cancel" to finish):');
+        if (pointValue === null) break;
+        arr.push(pointValue);
+    }
+};
+
+getPoint();
 }
 
 const addButton = document.createElement("button");
