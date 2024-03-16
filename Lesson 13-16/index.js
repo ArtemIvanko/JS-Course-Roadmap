@@ -15,14 +15,14 @@ const getDataStorage = (arr) => {
 }
 
 const getPoint = () => {
+    getDataStorage(arr)
+
     while (true) {
         const pointValue = prompt('Enter a point (or click "Cancel" to finish):');
         if (pointValue === null) break;
         arr.push(pointValue);
     }
 };
-
-getPoint();
 
 //TODO: rename "customButton"
 const createButton = (name, parent, callback) => {
@@ -46,8 +46,6 @@ const createPoint = (item, list) => {
 };
 
 const createList = (arr) => {
-    getDataStorage(arr);
-
     const list = document.createElement("ul");
     document.body.appendChild(list);
     arr.forEach((item) => {
@@ -70,4 +68,5 @@ createButton("Clear", document.body, () => {
     createList(arr);
 });
 
+getPoint();
 createList(arr);
