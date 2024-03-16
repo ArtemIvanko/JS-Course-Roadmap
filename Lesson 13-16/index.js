@@ -4,6 +4,15 @@ const setDataStorage = () => {
     localStorage.setItem("points", JSON.stringify(arr));
 }
 
+const getDataStorage = (arr) => {
+    const getDataStorage = JSON.parse(localStorage.getItem("points"));
+    if (getDataStorage !== null) {
+        getDataStorage.forEach((item) => {
+            arr.push(item);
+        });
+    }
+}
+
 const getPoint = () => {
     while (true) {
         const pointValue = prompt('Enter a point (or click "Cancel" to finish):');
@@ -36,6 +45,8 @@ const createPoint = (item, list) => {
 };
 
 const createList = (arr) => {
+    getDataStorage(arr);
+
     const list = document.createElement("ul");
     document.body.appendChild(list);
     arr.forEach((item) => {
