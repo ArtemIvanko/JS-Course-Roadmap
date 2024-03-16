@@ -1,6 +1,6 @@
 const arr = [];
 
-const localDataStorage = () => {
+const setDataStorage = () => {
     localStorage.setItem("points", JSON.stringify(arr));
 }
 
@@ -23,7 +23,7 @@ const customButton = (name, parent, callback) => {
 }
 
 const createPoint = (item, list) => {
-    localDataStorage();
+    setDataStorage();
 
     const listItem = document.createElement("li");
     listItem.textContent = item + " ";
