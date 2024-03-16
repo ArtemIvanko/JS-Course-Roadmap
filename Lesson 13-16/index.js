@@ -1,5 +1,9 @@
 const arr = [];
 
+const localDataStorage = () => {
+    localStorage.setItem("points", JSON.stringify(arr));
+}
+
 const getPoint = () => {
     while (true) {
         const pointValue = prompt('Enter a point (or click "Cancel" to finish):');
@@ -18,6 +22,8 @@ const customButton = (name, parent, callback) => {
 }
 
 const createPoint = (item, list) => {
+    localDataStorage();
+
     const listItem = document.createElement("li");
     listItem.textContent = item + " ";
     list.appendChild(listItem);
