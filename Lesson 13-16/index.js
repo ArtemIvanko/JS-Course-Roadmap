@@ -14,6 +14,7 @@ const getPoint = () => {
 
 getPoint();
 
+//TODO: rename "customButton"
 const customButton = (name, parent, callback) => {
     const button = document.createElement("button");
     button.textContent = name;
