@@ -41,6 +41,7 @@ const createPoint = (item, list) => {
 
     createButton("Remove", listItem, () => {
         arr.splice(arr.indexOf(item), 1);
+        localStorage.setItem("points", JSON.stringify(arr));
         list.removeChild(listItem);
     });
 };
